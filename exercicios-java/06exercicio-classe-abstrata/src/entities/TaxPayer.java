@@ -4,14 +4,17 @@ public abstract class TaxPayer {
 
 	private String name;
 	private Double anualIncome;
+	private char iC;
 
 	public TaxPayer() {
 
 	}
 
-	public TaxPayer(String name, Double anualIncome) {
+	public TaxPayer(String name, Double anualIncome, char iC) {
+		super();
 		this.name = name;
 		this.anualIncome = anualIncome;
+		this.iC = iC;
 	}
 
 	public String getName() {
@@ -30,6 +33,14 @@ public abstract class TaxPayer {
 		this.anualIncome = anualIncome;
 	}
 
+	public char getiC() {
+		return iC;
+	}
+
+	public void setiC(char iC) {
+		this.iC = iC;
+	}
+	
 	public abstract double tax();
 
 }

@@ -5,11 +5,11 @@ public class Company extends TaxPayer {
 	private Integer numberOfEmployees;
 
 	public Company() {
-
+		super();
 	}
 
-	public Company(String name, Double anualIncome, Integer numberOfEmployees) {
-		super(name, anualIncome);
+	public Company(String name, Double anualIncome, char iC, Integer numberOfEmployees) {
+		super(name, anualIncome, iC);
 		this.numberOfEmployees = numberOfEmployees;
 	}
 
@@ -23,8 +23,16 @@ public class Company extends TaxPayer {
 
 	@Override
 	public double tax() {
+		double sum = 0.0;
+		
+		if (numberOfEmployees > 10) {
+			sum += super.getAnualIncome() / 100 * 14;
 
-		return 0;
+		} else {
+			sum += super.getAnualIncome() / 100 * 16;
+		}
+
+		return sum;
 	}
 
 }
